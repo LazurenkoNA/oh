@@ -11,15 +11,26 @@ function splitting(className) {
         return ' '
       }
       return `<div class="${className}" style="display: inline-block; --index-letter: ${index + interval};">${letter}</div>`
-    }).join('')
+    })
+      .join('')
     console.log(result)
     $item.innerHTML = result
   })
 }
+
 splitting('letter')
 
 // Example animations letters
 // Пример анимирование букв
+ScrollOut({
+  targets: '.letter',
+  onShown: el => {
+    el.classList.add('oh__animated', 'oh__fadeInUpLight')
+  },
+})
+
+// Example animations letters (repeated animation)
+// Пример анимирование букв (повторная анимация)
 ScrollOut({
   targets: '.letter',
   onShown: el => {
